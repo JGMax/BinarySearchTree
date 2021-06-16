@@ -1,5 +1,6 @@
 enum class TraversalType {
     PreOrder,
     PostOrder,
-    InOrder;
+    InOrder,
+    InOrderReverse;
 }

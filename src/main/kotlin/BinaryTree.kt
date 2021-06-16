@@ -34,6 +34,15 @@ class BinaryTree {
             TraversalType.PreOrder -> preOrderTraversal(action, head)
             TraversalType.PostOrder -> postOrderTraversal(action, head)
             TraversalType.InOrder -> inOrderTraversal(action, head)
+            TraversalType.InOrderReverse -> inOrderReverseTraversal(action, head)
+        }
+    }
+
+    private fun inOrderReverseTraversal(action: Action, node: Node?) {
+        if (node != null) {
+            inOrderTraversal(action, node.right)
+            action.action(node.value)
+            inOrderTraversal(action, node.left)
         }
     }
 
