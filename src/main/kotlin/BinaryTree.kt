@@ -1,16 +1,15 @@
 class BinaryTree {
     private var head: Node? = null
-    var count = 0
+    var size = 0
         private set
 
     fun add(value: Int) {
         if (head == null) {
             head = Node(value)
-            return
         } else {
             add(value, requireNotNull(head))
         }
-        count++
+        size++
     }
 
     private fun add(value: Int, node: Node) {
