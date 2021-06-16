@@ -28,7 +28,7 @@ class BinaryTree {
         }
     }
 
-    fun traversal(type: TraversalType = TraversalType.PreOrder, action: Action) {
+    fun traversal(type: TraversalType = TraversalType.PreOrder, action: (value: Int) -> Unit) {
         when(type) {
             TraversalType.PreOrder -> preOrderTraversal(action, head)
             TraversalType.PostOrder -> postOrderTraversal(action, head)
@@ -37,33 +37,33 @@ class BinaryTree {
         }
     }
 
-    private fun inOrderReverseTraversal(action: Action, node: Node?) {
+    private fun inOrderReverseTraversal(action: (value: Int) -> Unit, node: Node?) {
         if (node != null) {
             inOrderTraversal(action, node.right)
-            action.action(node.value)
+            action(node.value)
             inOrderTraversal(action, node.left)
         }
     }
 
-    private fun inOrderTraversal(action: Action, node: Node?) {
+    private fun inOrderTraversal(action: (value: Int) -> Unit, node: Node?) {
         if (node != null) {
             inOrderTraversal(action, node.left)
-            action.action(node.value)
+            action(node.value)
             inOrderTraversal(action, node.right)
         }
     }
 
-    private fun postOrderTraversal(action: Action, node: Node?) {
+    private fun postOrderTraversal(action: (value: Int) -> Unit, node: Node?) {
         if (node != null) {
             postOrderTraversal(action, node.left)
             postOrderTraversal(action, node.right)
-            action.action(node.value)
+            action(node.value)
         }
     }
 
-    private fun preOrderTraversal(action: Action, node: Node?) {
+    private fun preOrderTraversal(action: (value: Int) -> Unit, node: Node?) {
         if (node != null) {
-            action.action(node.value)
+            action(node.value)
             preOrderTraversal(action, node.left)
             preOrderTraversal(action, node.right)
         }

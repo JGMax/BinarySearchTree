@@ -9,9 +9,7 @@ fun main() {
     tree.add(7)
     tree.add(6)
     tree.add(8)
-    tree.traversal(type = TraversalType.InOrder, action = object : Action {
-        override fun action(value: Int) {
-            print("$value ")
-        }
-    })
+    tree.traversal(TraversalType.InOrder) {
+        print("$it ")
+    }
 }
